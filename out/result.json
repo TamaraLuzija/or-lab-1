@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "name": "Gorgeous Steel Soap",
+    "short_description": "Sit dolores temporibus esse beatae.",
+    "main_image": "http://placeimg.com/640/480/technics",
+    "images": [
+      "http://placeimg.com/640/480/transport",
+      "http://placeimg.com/640/480/nature",
+      "http://placeimg.com/640/480/transport"
+    ],
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 10028,
+    "stock": 67542,
+    "raiting": 4,
+    "created_at": "2021-09-17T13:51:56.496Z",
+    "shop": {
+      "id": 1,
+      "slug": "sipes-wyman-and-davis",
+      "name": "Sipes, Wyman and Davis",
+      "description": "Ab quas aut. Assumenda hic consequatur illo omnis in enim sed aperiam.",
+      "background_image": "http://placeimg.com/640/480/animals",
+      "address": "81965 Lowe Passage",
+      "contact": "575-941-2551 x64807",
+      "rating": 2,
+      "timezone": "Etc/UTC",
+      "created_at": "2021-04-28T19:16:43.134Z"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Tasty Soft Table",
+    "short_description": "Quia rerum corporis.",
+    "main_image": "http://placeimg.com/640/480/cats",
+    "images": [
+      "http://placeimg.com/640/480/technics",
+      "http://placeimg.com/640/480/nightlife",
+      "http://placeimg.com/640/480/city"
+    ],
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "price": 13750,
+    "stock": 73096,
+    "raiting": 0,
+    "created_at": "2021-07-27T12:53:43.581Z",
+    "shop": {
+      "id": 1,
+      "slug": "mitchell-schneider-and-gerlach",
+      "name": "Mitchell, Schneider and Gerlach",
+      "description": "Laboriosam reprehenderit itaque ut qui ut sed voluptatem vel. Quam iure quisquam et inventore est aspernatur rerum qui.",
+      "background_image": "http://placeimg.com/640/480/abstract",
+      "address": "28674 Reynolds Stream",
+      "contact": "509.440.9422 x9300",
+      "rating": 2,
+      "timezone": "Asia/Jakarta",
+      "created_at": "2021-08-02T05:02:17.898Z"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Refined Soft Mouse",
+    "short_description": "Impedit accusamus magni dolor architecto eum aut saepe non.",
+    "main_image": "http://placeimg.com/640/480/business",
+    "images": [
+      "http://placeimg.com/640/480/sports",
+      "http://placeimg.com/640/480/cats",
+      "http://placeimg.com/640/480/business"
+    ],
+    "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+    "price": 44347,
+    "stock": 1637,
+    "raiting": 6,
+    "created_at": "2021-08-18T06:16:48.556Z",
+    "shop": {
+      "id": 1,
+      "slug": "kautzer-and-sons",
+      "name": "Kautzer and Sons",
+      "description": "Et harum nesciunt ea fuga dignissimos soluta. Iusto ipsam possimus nemo officiis voluptate.",
+      "background_image": "http://placeimg.com/640/480/fashion",
+      "address": "4949 Domenic Club",
+      "contact": "1-872-204-9601 x12122",
+      "rating": 2,
+      "timezone": "Europe/Vilnius",
+      "created_at": "2021-09-02T10:34:05.696Z"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Ergonomic Soft Towels",
+    "short_description": "Provident odit aspernatur non.",
+    "main_image": "http://placeimg.com/640/480/nightlife",
+    "images": [
+      "http://placeimg.com/640/480/nightlife",
+      "http://placeimg.com/640/480/food",
+      "http://placeimg.com/640/480/transport"
+    ],
+    "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+    "price": 64313,
+    "stock": 64229,
+    "raiting": 0,
+    "created_at": "2021-01-28T05:44:35.442Z",
+    "shop": {
+      "id": 2,
+      "slug": "hirthe-wolf",
+      "name": "Hirthe - Wolf",
+      "description": "Consequatur a cum. Nostrum impedit ut sed cumque quidem.",
+      "background_image": "http://placeimg.com/640/480/people",
+      "address": "225 Elvie Grove",
+      "contact": "1-851-449-4731 x041",
+      "rating": 2,
+      "timezone": "America/Regina",
+      "created_at": "2021-01-27T09:09:47.966Z"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ergonomic Concrete Hat",
+    "short_description": "Est possimus voluptatem reprehenderit inventore.",
+    "main_image": "http://placeimg.com/640/480/cats",
+    "images": [
+      "http://placeimg.com/640/480/nature",
+      "http://placeimg.com/640/480/business",
+      "http://placeimg.com/640/480/fashion"
+    ],
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+    "price": 241,
+    "stock": 37473,
+    "raiting": 4,
+    "created_at": "2020-12-16T20:44:39.078Z",
+    "shop": {
+      "id": 2,
+      "slug": "bosco-carroll",
+      "name": "Bosco - Carroll",
+      "description": "Qui provident magni officia voluptatem quasi et autem consequatur error. Sed minus fuga harum.",
+      "background_image": "http://placeimg.com/640/480/nightlife",
+      "address": "54845 Kirlin Curve",
+      "contact": "1-579-659-8194 x351",
+      "rating": 6,
+      "timezone": "Asia/Kabul",
+      "created_at": "2021-04-08T08:06:08.931Z"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Licensed Steel Cheese",
+    "short_description": "Amet quo ut illo.",
+    "main_image": "http://placeimg.com/640/480/abstract",
+    "images": [
+      "http://placeimg.com/640/480/fashion",
+      "http://placeimg.com/640/480/transport",
+      "http://placeimg.com/640/480/technics"
+    ],
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 74744,
+    "stock": 78738,
+    "raiting": 0,
+    "created_at": "2021-06-26T02:11:32.699Z",
+    "shop": {
+      "id": 2,
+      "slug": "hettinger-group",
+      "name": "Hettinger Group",
+      "description": "Nostrum quisquam repellat autem perferendis aut nisi dicta modi dignissimos. Vel accusamus eum sapiente nostrum.",
+      "background_image": "http://placeimg.com/640/480/sports",
+      "address": "76152 Cara Corner",
+      "contact": "(864) 882-3498",
+      "rating": 2,
+      "timezone": "Pacific/Auckland",
+      "created_at": "2021-05-23T05:40:25.568Z"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Licensed Rubber Computer",
+    "short_description": "Dolor eum optio culpa aperiam.",
+    "main_image": "http://placeimg.com/640/480/people",
+    "images": [
+      "http://placeimg.com/640/480/abstract",
+      "http://placeimg.com/640/480/fashion",
+      "http://placeimg.com/640/480/fashion"
+    ],
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 49109,
+    "stock": 73525,
+    "raiting": 4,
+    "created_at": "2021-02-10T10:44:51.345Z",
+    "shop": {
+      "id": 3,
+      "slug": "ferry-davis-and-price",
+      "name": "Ferry, Davis and Price",
+      "description": "Mollitia sequi officia qui cumque. Veniam pariatur nostrum illo nisi est est.",
+      "background_image": "http://placeimg.com/640/480/city",
+      "address": "716 Fadel Drive",
+      "contact": "519.229.0142",
+      "rating": 2,
+      "timezone": "Asia/Muscat",
+      "created_at": "2020-12-16T09:40:49.642Z"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Awesome Rubber Bacon",
+    "short_description": "Dolor quo ducimus cum dolores unde eos dolores cum.",
+    "main_image": "http://placeimg.com/640/480/technics",
+    "images": [
+      "http://placeimg.com/640/480/food",
+      "http://placeimg.com/640/480/food",
+      "http://placeimg.com/640/480/food"
+    ],
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+    "price": 8326,
+    "stock": 65491,
+    "raiting": 2,
+    "created_at": "2020-12-30T01:48:04.471Z",
+    "shop": {
+      "id": 3,
+      "slug": "raynor-nikolaus",
+      "name": "Raynor - Nikolaus",
+      "description": "Eligendi id et omnis explicabo dolorem iste sint eos. Qui eos nemo et ullam rem.",
+      "background_image": "http://placeimg.com/640/480/cats",
+      "address": "099 Hyatt Turnpike",
+      "contact": "1-454-568-5141 x3883",
+      "rating": 4,
+      "timezone": "Europe/Copenhagen",
+      "created_at": "2021-09-05T19:32:05.457Z"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Intelligent Steel Sausages",
+    "short_description": "Pariatur quo fugit.",
+    "main_image": "http://placeimg.com/640/480/nightlife",
+    "images": [
+      "http://placeimg.com/640/480/animals",
+      "http://placeimg.com/640/480/animals",
+      "http://placeimg.com/640/480/technics"
+    ],
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+    "price": 79266,
+    "stock": 96477,
+    "raiting": 0,
+    "created_at": "2021-10-16T23:07:11.029Z",
+    "shop": {
+      "id": 3,
+      "slug": "oberbrunner-and-sons",
+      "name": "Oberbrunner and Sons",
+      "description": "Nesciunt a temporibus voluptates quisquam molestias et. Natus est blanditiis vel vel ipsa eum aliquid culpa itaque.",
+      "background_image": "http://placeimg.com/640/480/nightlife",
+      "address": "91426 Brionna Forks",
+      "contact": "672-234-6095",
+      "rating": 4,
+      "timezone": "America/Argentina/Buenos_Aires",
+      "created_at": "2021-04-09T13:45:41.400Z"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Handcrafted Granite Chair",
+    "short_description": "Recusandae et veniam expedita nobis.",
+    "main_image": "http://placeimg.com/640/480/fashion",
+    "images": [
+      "http://placeimg.com/640/480/transport",
+      "http://placeimg.com/640/480/abstract",
+      "http://placeimg.com/640/480/abstract"
+    ],
+    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+    "price": 19608,
+    "stock": 12846,
+    "raiting": 0,
+    "created_at": "2021-04-22T06:41:50.741Z",
+    "shop": {
+      "id": 4,
+      "slug": "morissette-wilderman",
+      "name": "Morissette - Wilderman",
+      "description": "Omnis ducimus est. Modi nesciunt rerum sapiente iste voluptates.",
+      "background_image": "http://placeimg.com/640/480/business",
+      "address": "786 Lakin Manor",
+      "contact": "532-628-1710 x8212",
+      "rating": 4,
+      "timezone": "Asia/Tokyo",
+      "created_at": "2021-07-29T22:38:51.735Z"
+    }
+  }
+]

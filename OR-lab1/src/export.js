@@ -26,16 +26,6 @@ const db = require("./db")();
     );
   };
 
-  const tmpObj = {};
-  products.forEach((rawProduct) => {
-    const p = mapper("shop_", rawProduct);
-    if (tmpObj[p["productId"]]) {
-      return;
-    }
-
-    tmpObj[p["productId"]] = p;
-  });
-
   const tmp = products.map((p) => {
     const shop = mapper("shop_", p);
     const product = mapper("shop_", p, true);
@@ -52,7 +42,7 @@ const db = require("./db")();
     JSON.stringify(tmp, null, 2)
   );
 
-  await writeToPath(join(__dirname, "../out/result.csv"), products, {
+  writeToPath(join(__dirname, "../out/result.csv"), products, {
     headers: true,
   });
 

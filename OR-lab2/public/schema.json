@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "$id": "#products",
+  "title": "Product Catalog",
+  "description": "List of products with shops",
+  "items": {
+    "type": "object",
+    "title": "Product",
+    "description": "Object representing a product with a shop",
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "short_description": {
+        "type": "string"
+      },
+      "main_image": {
+        "type": "string"
+      },
+      "images": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "description": {
+        "type": "string"
+      },
+      "price": {
+        "type": "integer"
+      },
+      "stock": {
+        "type": "integer"
+      },
+      "rating": {
+        "type": "number"
+      },
+      "created_at": {
+        "type": "string"
+      },
+      "shop_id": {
+        "type": "integer"
+      },
+      "shop_slug": {
+        "type": "string"
+      },
+      "shop_name": {
+        "type": "string"
+      },
+      "shop_description": {
+        "type": "string"
+      },
+      "shop_background_image": {
+        "type": "string"
+      },
+      "shop_address": {
+        "type": "string"
+      },
+      "shop_contact": {
+        "type": "string"
+      },
+      "shop_rating": {
+        "type": "number"
+      },
+      "shop_timezone": {
+        "type": "string"
+      },
+      "shop_created_at": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "id",
+      "name",
+      "short_description",
+      "main_image",
+      "images",
+      "description",
+      "price",
+      "stock",
+      "rating",
+      "created_at",
+      "shop_id",
+      "shop_slug",
+      "shop_name",
+      "shop_description",
+      "shop_background_image",
+      "shop_address",
+      "shop_contact",
+      "shop_rating",
+      "shop_timezone",
+      "shop_created_at"
+    ]
+  }
+}

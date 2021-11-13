@@ -31,7 +31,9 @@ const ProductSchema = S.object()
   .prop("shop_created_at", S.string().required());
 
 const Products = S.array()
-  .id("#products")
+  .id(
+    "https://raw.githubusercontent.com/TamaraLuzija/otvoreno-racunarstvo/main/OR-lab2/public/schema.json"
+  )
   .title("Product Catalog")
   .description("List of products with shops")
   .items(ProductSchema);
@@ -43,8 +45,5 @@ const Products = S.array()
   );
 
   const output = await compile(Products.valueOf(), "thingy");
-  await writeFile(
-    join(__dirname, "./types.ts"),
-    format(output, { parser: "typescript" })
-  );
+  await writeFile(join(__dirname, "./types.ts"), format(output, { parser: "typescript" }));
 })();

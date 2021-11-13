@@ -1,189 +1,109 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { useSortBy, useTable } from "react-table";
-import {
-  chakra,
-  Table,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-  Image,
-  VStack,
-  Box,
-  Heading,
-  Flex,
-  Button,
-  HStack,
-} from "@chakra-ui/react";
-import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
+import { Spinner, Image, Button, VStack, HStack } from "@chakra-ui/react";
+import { DataTable } from "chakra-data-table";
+import { Form, InputField, ReactSelectField } from "chakra-form";
+import { z } from "zod";
+import Papa from "papaparse";
 
-const getProducts = () => {
-  return fetch("http://localhost:3000/api/list")
-    .then((res) => res.json())
-    .then((res) => res);
+import { Product, ProductCatalog } from "../types";
+import { LinkButton } from "chakra-next-link";
+
+const schema = z.object({
+  search: z.string(),
+  columns: z.array(z.string()),
+});
+
+const getProducts = (): Promise<ProductCatalog> => {
+  return fetch("http://localhost:3000/api/list").then((res) => res.json());
 };
 
 const columns = [
-  {
-    Header: "id",
-    accessor: "id",
-  },
-  {
-    Header: "name",
-    accessor: "name",
-  },
-  {
-    Header: "short_description",
-    accessor: "short_description",
-  },
-  {
-    Header: "main_image",
-    accessor: "main_image",
-    Cell: ({ value }) => {
-      return <Image aria-label="slika" src={value} />;
-    },
-  },
-  {
-    Header: "images",
-    accessor: "images",
-    Cell: ({ value }) => {
-      return (
-        <VStack>
-          {JSON.parse(`[${value.slice(1, -1)}]`).map((image) => (
-            <Image aria-label="slika" src={image} />
-          ))}
-        </VStack>
-      );
-    },
-  },
-  {
-    Header: "description",
-    accessor: "description",
-  },
-  {
-    Header: "price",
-    accessor: "price",
-  },
-  {
-    Header: "stock",
-    accessor: "stock",
-  },
-  {
-    Header: "Raiting",
-    accessor: "raiting",
-  },
-  {
-    Header: "created_at",
-    accessor: "created_at",
-  },
-  {
-    Header: "shop_id",
-    accessor: "shop_id",
-  },
-  {
-    Header: "shop_slug",
-    accessor: "shop_slug",
-  },
-  {
-    Header: "shop_name",
-    accessor: "shop_name",
-  },
-  {
-    Header: "shop_description",
-    accessor: "shop_description",
-  },
-  {
-    Header: "shop_background_image",
-    accessor: "shop_background_image",
-  },
-  {
-    Header: "shop_address",
-    accessor: "shop_address",
-  },
-  {
-    Header: "shop_contact",
-    accessor: "shop_contact",
-  },
-  {
-    Header: "shop_rating",
-    accessor: "shop_rating",
-  },
-  {
-    Header: "shop_timezone",
-    accessor: "shop_timezone",
-  },
-  {
-    Header: "shop_created_at",
-    accessor: "shop_created_at",
-  },
+  { label: "Name", value: "name" },
+  { label: "Šort deskripšn", value: "short_description" },
 ];
 
 const Home = () => {
   const { data } = useQuery("products", getProducts);
+  const [filteredData, setFilteredData] = useState<ProductCatalog>([]);
 
-  const tableInstance = useTable({ columns, data: data || [] }, useSortBy);
+  useEffect(() => {
+    if (data) {
+      setFilteredData(data);
+    }
+  }, [data]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+  const onDownload = (format: "json" | "csv") => () => {
+    let data = undefined;
+    if (format === "csv") {
+      data = Papa.unparse(filteredData);
+    } else {
+      data = JSON.stringify(filteredData, null, 2);
+    }
+
+    const dataStr = `data:text/${format};charset=utf-8,${encodeURIComponent(data)}`;
+
+    const dlAnchorElem = document.createElement("a");
+    dlAnchorElem.setAttribute("href", dataStr);
+    dlAnchorElem.setAttribute("download", `productCatalog.${format}`);
+    dlAnchorElem.click();
+  };
+
+  if (!data) {
+    return <Spinner />;
+  }
 
   return (
-    <Box>
-      <Flex width="100%">
-        <Heading p="20px">Products list</Heading>
+    <>
+      <Form
+        schema={schema}
+        initialValues={{ columns: [] }}
+        onSubmit={(submitData) => {
+          const filterByColumns: (keyof Product)[] =
+            submitData.columns.length > 0 ? submitData.columns : columns.map((c) => c.value);
+
+          setFilteredData(
+            data.filter((row) =>
+              filterByColumns.some((key) =>
+                (row[key] as any).toLowerCase().includes(submitData.search.toLowerCase())
+              )
+            )
+          );
+        }}
+      >
+        <InputField name="search" />
+        <ReactSelectField name="columns" options={columns} />
+
         <HStack>
-          <Button
-            colorScheme="blue"
-            onClick={() => console.log("Export to json")}
-          >
-            JSON
-          </Button>
-          <Button
-            colorScheme="green"
-            onClick={() => console.log("Export to csv")}
-          >
-            CSV
-          </Button>
+          <Button type="submit">Submit</Button>
+          <Button onClick={() => setFilteredData(data)}>Clear</Button>
+
+          <Button onClick={onDownload("json")}>JSON</Button>
+          <Button onClick={onDownload("csv")}>CSV</Button>
+
+          <LinkButton href="/schema.json">Schema</LinkButton>
         </HStack>
-      </Flex>
-      <Table {...getTableProps()} width="80%">
-        <Thead>
-          {headerGroups.map((headerGroup) => (
-            <Tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column: any) => (
-                <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render("Header")}
-                  <chakra.span pl="4">
-                    {column.isSorted ? (
-                      column.isSortedDesc ? (
-                        <TriangleDownIcon aria-label="sorted descending" />
-                      ) : (
-                        <TriangleUpIcon aria-label="sorted ascending" />
-                      )
-                    ) : null}
-                  </chakra.span>
-                </Th>
+      </Form>
+
+      <DataTable
+        data={filteredData}
+        keys={["id", "name", "short_description", "main_image", "images"] as const}
+        labels={{ short_description: "Šort diskripšn", main_image: "Main image" }}
+        mapper={{
+          id: true,
+          name: true,
+          short_description: true,
+          main_image: (row) => <Image aria-label="slika" src={row.main_image} w="260px" />,
+          images: (row) => (
+            <VStack>
+              {row.images.map((image) => (
+                <Image aria-label="slika" src={image} w="260px" />
               ))}
-            </Tr>
-          ))}
-        </Thead>
-        <Tbody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
-            return (
-              <Tr {...row.getRowProps()}>
-                {row.cells.map((cell) => (
-                  <Td wordBreak="break-all" {...cell.getCellProps()}>
-                    {cell.render("Cell")}
-                  </Td>
-                ))}
-              </Tr>
-            );
-          })}
-        </Tbody>
-      </Table>
-    </Box>
+            </VStack>
+          ),
+        }}
+      />
+    </>
   );
 };
 

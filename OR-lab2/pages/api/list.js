@@ -12,7 +12,18 @@ const getProducts = async (req, res) => {
 FROM "product" 
 JOIN "shop" as "s" ON "s"."id" = "product"."id"`
   );
-  res.status(200).json(results.rows);
+
+  res.status(200).json(
+    results.rows.map((row) => {
+      const { raiting, images, ...rest } = row;
+
+      return {
+        ...rest,
+        images: JSON.parse(`[${images.slice(1, -1)}]`),
+        rating: raiting,
+      };
+    })
+  );
 };
 
 export default getProducts;

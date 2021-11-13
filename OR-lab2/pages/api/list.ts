@@ -11,7 +11,7 @@ const getProducts: NextApiHandler = async (req, res) => {
   "s"."background_image" as "shop_background_image", "s"."address" as "shop_address", "s"."contact" as "shop_contact", 
   "s"."rating" as "shop_rating", "s"."timezone" as "shop_timezone", "s"."created_at" as "shop_created_at"
 FROM "product" 
-JOIN "shop" as "s" ON "s"."id" = "product"."id"`
+JOIN "shop" as "s" ON "s"."id" = "product"."shop_id"`
   );
 
   res.status(200).json(

@@ -1,10 +1,11 @@
+import { NextApiHandler } from "next";
 import { Pool } from "pg";
 
 const pool = new Pool({
   connectionString: `postgres://${process.env["DB_USER"]}:${process.env["DB_PASS"]}@localhost/or-lab`,
 });
 
-const getProducts = async (req, res) => {
+const getProducts: NextApiHandler = async (req, res) => {
   const results = await pool.query(
     `SELECT "product".*, "s"."slug" as "shop_slug", "s"."name" as "shop_name", "s"."description" as "shop_description", 
   "s"."background_image" as "shop_background_image", "s"."address" as "shop_address", "s"."contact" as "shop_contact", 

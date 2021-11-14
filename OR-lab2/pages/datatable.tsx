@@ -24,6 +24,7 @@ import Papa from "papaparse";
 
 import { Product, ProductCatalog } from "../types";
 import { LinkButton } from "chakra-next-link";
+import Head from "next/head";
 
 const schema = z.object({
   search: z.string(),
@@ -89,6 +90,15 @@ const Datatable = () => {
 
   return (
     <>
+      <Head>
+        <title>Product datatable - druga laboratorijska vjezba</title>
+        <meta
+          name="description"
+          content="Open product catalog for Nike shoes with json and csv + filtering"
+        />
+        <meta name="keywords" content="products,tenisice,Nike,open dataset,json,csv,open-source" />
+        <meta name="author" content="Tamara Luzija" />
+      </Head>
       <Modal {...modalProps} size="4xl">
         <ModalOverlay />
         <ModalContent>

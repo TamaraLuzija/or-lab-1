@@ -73,7 +73,7 @@ const Home = () => {
             <Text> Autor: Tamara Luzija </Text>
             <HStack pt="10">
               <LinkButton colorScheme="green" href="/datatable">
-                Database
+                Datatable
               </LinkButton>
               <LinkButton colorScheme="orange" href="/all.csv">
                 CSV

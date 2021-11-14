@@ -75,7 +75,13 @@ const Home = () => {
               <LinkButton colorScheme="green" href="/datatable">
                 Database
               </LinkButton>
-              <LinkButton colorScheme="blue" href="/schema.json" isExternal>
+              <LinkButton colorScheme="orange" href="/all.csv">
+                CSV
+              </LinkButton>
+              <LinkButton colorScheme="yellow" href="/all.json">
+                JSON
+              </LinkButton>
+              <LinkButton colorScheme="teal" href="/schema.json" isExternal>
                 Schema
               </LinkButton>
             </HStack>

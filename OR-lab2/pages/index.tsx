@@ -1,6 +1,6 @@
 import React from "react";
 
-import { VStack, HStack, Box, Heading, Code, SimpleGrid } from "@chakra-ui/react";
+import { VStack, HStack, Box, Heading, Code, SimpleGrid, Text } from "@chakra-ui/react";
 import { LinkButton } from "chakra-next-link";
 import { DataTable } from "chakra-data-table";
 import Head from "next/head";
@@ -53,12 +53,18 @@ const Home = () => {
       </Head>
       <Box display="flex" h="100vh">
         <SimpleGrid columns={2}>
-          <VStack>
-            <Heading p="10" size="2xl">
+          <VStack backgroundColor="gray.200">
+            <Heading pt="10" size="xl" color="gray.600">
               {" "}
               Druga laboratorijska vjezba{" "}
             </Heading>
-            <HStack>
+            <Heading pb="10" color="gray.800">
+              {" "}
+              Product catalog{" "}
+            </Heading>
+            <Text> Verzija 2.0 </Text>
+            <Text> Autor: Tamara Luzija </Text>
+            <HStack pt="10">
               <LinkButton colorScheme="green" href="/datatable">
                 Database
               </LinkButton>

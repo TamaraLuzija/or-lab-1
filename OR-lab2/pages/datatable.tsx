@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import {
   Spinner,
@@ -18,7 +18,7 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { DataTable } from "chakra-data-table";
-import { Form, InputField, ReactSelectField } from "chakra-form";
+import { Form, FormHandler, InputField, ReactSelectField } from "chakra-form";
 import { z } from "zod";
 import Papa from "papaparse";
 
@@ -43,8 +43,7 @@ const columns = [
   { label: "Rating", value: "rating" },
   { label: "Shop name", value: "shop_name" },
   { label: "Shop description", value: "shop_description" },
-  { label: "Shop address", value: "name" },
-  { label: "Name", value: "shop_address" },
+  { label: "Shop address", value: "shop_address" },
   { label: "Shop contact", value: "shop_contact" },
 ];
 
@@ -75,6 +74,8 @@ const Datatable = () => {
     dlAnchorElem.setAttribute("download", `productCatalog.${format}`);
     dlAnchorElem.click();
   };
+
+  const formRef = useRef<FormHandler<typeof schema>>(null);
 
   if (!data) {
     return <Spinner />;
@@ -119,8 +120,9 @@ const Datatable = () => {
       </Modal>
 
       <Form
+        ref={formRef}
         schema={schema}
-        initialValues={{ columns: [] }}
+        initialValues={{ columns: ["name", "description"] }}
         onSubmit={(submitData) => {
           const filterByColumns: (keyof Product)[] =
             submitData.columns.length > 0 ? submitData.columns : columns.map((c) => c.value);
@@ -144,7 +146,14 @@ const Datatable = () => {
               <Button type="submit" colorScheme="green">
                 Submit
               </Button>
-              <Button type="reset" colorScheme="blue" onClick={() => setFilteredData(data)}>
+              <Button
+                type="reset"
+                colorScheme="blue"
+                onClick={() => {
+                  setFilteredData(data);
+                  formRef.current.setValue("columns", []);
+                }}
+              >
                 Clear
               </Button>
             </HStack>

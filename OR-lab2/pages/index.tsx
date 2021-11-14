@@ -62,18 +62,25 @@ const Home = () => {
               {" "}
               Product catalog{" "}
             </Heading>
+
+            <Text maxW="80%" textAlign="center" pb="10">
+              Product catalog je aplikacija u kojoj mozemo vizualno pregledati nas otvoreni skup
+              podataka (u ovo slucaju katalog tenisica), te ga mozemo pretrazivati po svim ili
+              odredenim stupcima. Rezultate pretrage mozemo preuzeti u JSON ili CSV obliku
+            </Text>
+
             <Text> Verzija 2.0 </Text>
             <Text> Autor: Tamara Luzija </Text>
             <HStack pt="10">
               <LinkButton colorScheme="green" href="/datatable">
                 Database
               </LinkButton>
-              <LinkButton colorScheme="blue" href="/schema.json">
+              <LinkButton colorScheme="blue" href="/schema.json" isExternal>
                 Schema
               </LinkButton>
             </HStack>
           </VStack>
-          <Box p="10" backgroundColor="gray.100">
+          <Box p="10">
             <DataTable
               data={data}
               title="Schema description"

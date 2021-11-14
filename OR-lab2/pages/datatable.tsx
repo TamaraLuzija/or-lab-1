@@ -25,6 +25,7 @@ import Papa from "papaparse";
 import { Product, ProductCatalog } from "../types";
 import { LinkButton } from "chakra-next-link";
 import Head from "next/head";
+import { SearchIcon } from "@chakra-ui/icons";
 
 const schema = z.object({
   search: z.string(),
@@ -153,8 +154,8 @@ const Datatable = () => {
             <ReactSelectField name="columns" options={columns} />
 
             <HStack>
-              <Button type="submit" colorScheme="green">
-                Submit
+              <Button type="submit" colorScheme="green" rightIcon={<SearchIcon />}>
+                Search
               </Button>
               <Button
                 type="reset"
@@ -176,7 +177,7 @@ const Datatable = () => {
               CSV
             </Button>
 
-            <LinkButton href="/schema.json" colorScheme="teal">
+            <LinkButton href="/schema.json" colorScheme="teal" isExternal>
               Schema
             </LinkButton>
           </HStack>

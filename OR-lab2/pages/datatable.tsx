@@ -218,7 +218,7 @@ const Datatable = () => {
           images: (row) => (
             <VStack>
               {row.images.map((image) => (
-                <Image aria-label="slika" src={image} w="260px" />
+                <Image aria-label="slika" src={image} w="260px" key="image" />
               ))}
             </VStack>
           ),

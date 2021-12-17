@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id                Int       @id @default(autoincrement())
+  name              String?
+  short_description String?
+  main_image        String?
+  images            String?
+  description       String?
+  price             Int?
+  stock             Int?
+  rating            Float?    @map("raiting") @db.Real
+  created_at        DateTime? @db.Timestamp(6)
+  shop_id           Int
+  shop              Shop      @relation(fields: [shop_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("product")
+}
+
+model Shop {
+  id               Int       @id @default(autoincrement())
+  slug             String?
+  name             String?
+  description      String?
+  background_image String?
+  address          String?
+  contact          String?
+  rating           Float?
+  timezone         String?
+  created_at       DateTime? @db.Timestamp(6)
+  product          Product[]
+
+  @@map("shop")
+}

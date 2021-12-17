@@ -2,5 +2,6 @@
   "cSpell.words": [
     "papaparse",
     "Typebox"
-  ]
+  ],
+  "editor.formatOnSave": true
 }

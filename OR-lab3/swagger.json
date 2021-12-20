@@ -1,0 +1,431 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Test swagger",
+    "description": "Testing the Fastify swagger API",
+    "version": "0.1.0"
+  },
+  "definitions": {
+    "Product": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "name": { "type": "string" },
+        "short_description": { "type": "string" },
+        "main_image": { "type": "string" },
+        "images": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "stock": { "type": "number" },
+        "rating": { "type": "number" },
+        "created_at": { "type": "string" },
+        "shop_id": { "type": "number" }
+      },
+      "required": [
+        "id",
+        "name",
+        "short_description",
+        "main_image",
+        "images",
+        "description",
+        "price",
+        "stock",
+        "rating",
+        "created_at",
+        "shop_id"
+      ]
+    },
+    "Shop": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "slug": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "background_image": { "type": "string" },
+        "address": { "type": "string" },
+        "contact": { "type": "string" },
+        "rating": { "type": "number" },
+        "timezone": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "description",
+        "background_image",
+        "address",
+        "contact",
+        "rating",
+        "timezone",
+        "created_at"
+      ]
+    }
+  },
+  "paths": {
+    "/": { "get": { "responses": { "200": { "description": "Default Response" } } } },
+    "/example/": { "get": { "responses": { "200": { "description": "Default Response" } } } },
+    "/products/": {
+      "get": {
+        "tags": ["products"],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "number" },
+                  "name": { "type": "string" },
+                  "short_description": { "type": "string" },
+                  "main_image": { "type": "string" },
+                  "images": { "type": "string" },
+                  "description": { "type": "string" },
+                  "price": { "type": "number" },
+                  "stock": { "type": "number" },
+                  "rating": { "type": "number" },
+                  "created_at": { "type": "string" },
+                  "shop_id": { "type": "number" }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "short_description",
+                  "main_image",
+                  "images",
+                  "description",
+                  "price",
+                  "stock",
+                  "rating",
+                  "created_at",
+                  "shop_id"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "short_description": { "type": "string" },
+                "main_image": { "type": "string" },
+                "images": { "type": "string" },
+                "description": { "type": "string" },
+                "price": { "type": "number" },
+                "stock": { "type": "number" },
+                "shop_id": { "type": "number" }
+              },
+              "required": [
+                "name",
+                "short_description",
+                "main_image",
+                "images",
+                "description",
+                "price",
+                "stock",
+                "shop_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "number" },
+                "name": { "type": "string" },
+                "short_description": { "type": "string" },
+                "main_image": { "type": "string" },
+                "images": { "type": "string" },
+                "description": { "type": "string" },
+                "price": { "type": "number" },
+                "stock": { "type": "number" },
+                "rating": { "type": "number" },
+                "created_at": { "type": "string" },
+                "shop_id": { "type": "number" }
+              },
+              "required": [
+                "id",
+                "name",
+                "short_description",
+                "main_image",
+                "images",
+                "description",
+                "price",
+                "stock",
+                "rating",
+                "created_at",
+                "shop_id"
+              ]
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["products"],
+        "parameters": [{ "type": "number", "required": true, "in": "path", "name": "id" }],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "number" },
+                "name": { "type": "string" },
+                "short_description": { "type": "string" },
+                "main_image": { "type": "string" },
+                "images": { "type": "string" },
+                "description": { "type": "string" },
+                "price": { "type": "number" },
+                "stock": { "type": "number" },
+                "rating": { "type": "number" },
+                "created_at": { "type": "string" },
+                "shop_id": { "type": "number" }
+              },
+              "required": [
+                "id",
+                "name",
+                "short_description",
+                "main_image",
+                "images",
+                "description",
+                "price",
+                "stock",
+                "rating",
+                "created_at",
+                "shop_id"
+              ]
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["products"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "short_description": { "type": "string" },
+                "main_image": { "type": "string" },
+                "images": { "type": "string" },
+                "description": { "type": "string" },
+                "price": { "type": "number" },
+                "stock": { "type": "number" },
+                "shop_id": { "type": "number" }
+              },
+              "required": [
+                "name",
+                "short_description",
+                "main_image",
+                "images",
+                "description",
+                "price",
+                "stock",
+                "shop_id"
+              ]
+            }
+          },
+          { "type": "number", "required": true, "in": "path", "name": "id" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "number" },
+                "name": { "type": "string" },
+                "short_description": { "type": "string" },
+                "main_image": { "type": "string" },
+                "images": { "type": "string" },
+                "description": { "type": "string" },
+                "price": { "type": "number" },
+                "stock": { "type": "number" },
+                "rating": { "type": "number" },
+                "created_at": { "type": "string" },
+                "shop_id": { "type": "number" }
+              },
+              "required": [
+                "id",
+                "name",
+                "short_description",
+                "main_image",
+                "images",
+                "description",
+                "price",
+                "stock",
+                "rating",
+                "created_at",
+                "shop_id"
+              ]
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["products"],
+        "parameters": [{ "type": "number", "required": true, "in": "path", "name": "id" }],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "ok": { "type": "boolean" } },
+              "required": ["ok"]
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}/images": {
+      "get": {
+        "tags": ["products"],
+        "parameters": [{ "type": "number", "required": true, "in": "path", "name": "id" }],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "images": { "type": "array", "items": { "type": "string" } } },
+              "required": ["images"]
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}/main_image": {
+      "get": {
+        "tags": ["products"],
+        "parameters": [{ "type": "number", "required": true, "in": "path", "name": "id" }],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "mainImage": { "type": "string" } },
+              "required": ["mainImage"]
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}/shop": {
+      "get": {
+        "tags": ["products"],
+        "parameters": [{ "type": "number", "required": true, "in": "path", "name": "id" }],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "number" },
+                "slug": { "type": "string" },
+                "name": { "type": "string" },
+                "description": { "type": "string" },
+                "background_image": { "type": "string" },
+                "address": { "type": "string" },
+                "contact": { "type": "string" },
+                "rating": { "type": "number" },
+                "timezone": { "type": "string" },
+                "created_at": { "type": "string" }
+              },
+              "required": [
+                "id",
+                "slug",
+                "name",
+                "description",
+                "background_image",
+                "address",
+                "contact",
+                "rating",
+                "timezone",
+                "created_at"
+              ]
+            }
+          },
+          "404": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "properties": { "message": { "type": "string" } },
+              "required": ["message"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "tags": [{ "name": "products", "description": "User related end-points" }],
+  "externalDocs": { "url": "https://swagger.io", "description": "Find more info here" }
+}

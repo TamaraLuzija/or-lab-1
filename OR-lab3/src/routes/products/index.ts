@@ -1,28 +1,14 @@
-import { FastifyPluginAsync } from "fastify";
+import { FastifyPluginAsync, FastifyReply } from "fastify";
 import { Type, Static } from "@sinclair/typebox";
 
 import db from "../../db";
+import { ProductSchema, ErrorSchema, ShopSchema, CreateBody } from "../../schemas";
 
-export const ProductSchema = Type.Object({
-  id: Type.Number(),
-  name: Type.String(),
-  short_description: Type.String(),
-  main_image: Type.String(),
-  images: Type.String(),
-  description: Type.String(),
-  price: Type.Number(),
-  stock: Type.Number(),
-  rating: Type.Number(),
-  created_at: Type.String(),
-  shop_id: Type.Number(),
-});
+const json = (reply: FastifyReply, data: any, status = 200) => {
+  reply.status(status).header("content-type", "application/json").send(data);
+};
 
 const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
-  const createSchema = Type.Omit(ProductSchema, ["id", "created_at", "rating"]);
-  const createOk = ProductSchema;
-  const createError = Type.Object({
-    message: Type.String(),
-  });
   fastify.get(
     "/",
     {
@@ -34,9 +20,7 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
       },
     },
     async (request, reply) => {
-      console.log("request", request.query);
-      const products = await db.product.findMany();
-      reply.send(products);
+      json(reply, await db.product.findMany());
     }
   );
 
@@ -45,12 +29,10 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     {
       schema: {
         tags: ["products"],
-        params: Type.Object({
-          id: Type.Number(),
-        }),
+        params: Type.Object({ id: Type.Number() }),
         response: {
-          201: createOk,
-          400: createError,
+          200: ProductSchema,
+          404: ErrorSchema,
         },
       },
     },
@@ -61,7 +43,11 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         },
       });
 
-      reply.send(product);
+      if (!product) {
+        return json(reply, { message: "Product not found" }, 404);
+      }
+
+      return json(reply, product);
     }
   );
 
@@ -74,8 +60,8 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
           id: Type.Number(),
         }),
         response: {
-          201: createOk,
-          400: createError,
+          200: Type.Object({ images: Type.Array(Type.String()) }),
+          404: ErrorSchema,
         },
       },
     },
@@ -85,7 +71,16 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
           id: request.params.id,
         },
       });
-      reply.send(product?.images);
+
+      if (!product) {
+        return json(reply, { message: "Product not found" }, 404);
+      }
+
+      if (!product.images) {
+        return json(reply, { message: "Product does not have any images" }, 404);
+      }
+
+      json(reply, { images: JSON.parse(`[${product.images.slice(1, -1)}]`) });
     }
   );
 
@@ -98,8 +93,8 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
           id: Type.Number(),
         }),
         response: {
-          201: createOk,
-          400: createError,
+          200: Type.Object({ mainImage: Type.String() }),
+          400: ErrorSchema,
         },
       },
     },
@@ -109,7 +104,12 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
           id: request.params.id,
         },
       });
-      reply.send(product?.main_image);
+
+      if (!product) {
+        return json(reply, { message: "Product not found" }, 404);
+      }
+
+      json(reply, { mainImage: product?.main_image });
     }
   );
 
@@ -118,66 +118,59 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     {
       schema: {
         tags: ["products"],
-        params: Type.Object({
-          id: Type.Number(),
-        }),
+        params: Type.Object({ id: Type.Number() }),
         response: {
-          201: createOk,
-          400: createError,
+          200: ShopSchema,
+          404: ErrorSchema,
         },
       },
     },
     async (request, reply) => {
-      const product = await db.product.findFirst({
-        where: {
-          id: request.params.id,
-        },
-      });
       const shop = await db.shop.findFirst({
         where: {
-          id: product?.shop_id,
+          product: {
+            some: {
+              id: request.params.id,
+            },
+          },
         },
       });
-      reply.send(shop);
+
+      if (!shop) {
+        return json(reply, { message: "Shop not found" }, 404);
+      }
+
+      json(reply, shop);
     }
   );
 
-  fastify.post<{ Body: Static<typeof createSchema> }>(
+  fastify.post<{ Body: Static<typeof CreateBody> }>(
     "/",
     {
       schema: {
         tags: ["products"],
-        body: createSchema,
+        body: CreateBody,
         response: {
-          201: createOk,
-          400: createError,
+          201: ProductSchema,
+          400: ErrorSchema,
         },
       },
     },
     async (request, reply) => {
       try {
-        const newProduct = await db.product.create({
-          data: {
-            ...request.body,
-          },
-        });
-
-        reply.code(201).send(newProduct);
+        const newProduct = await db.product.create({ data: { ...request.body } });
+        json(reply, newProduct, 201);
       } catch (error) {
         if (error instanceof Error) {
-          reply.code(400).send({
-            message: error.message,
-          });
+          json(reply, { message: error.message }, 400);
         } else {
-          reply.code(400).send({
-            message: error as any,
-          });
+          json(reply, { message: error as any }, 400);
         }
       }
     }
   );
 
-  fastify.put<{ Params: { id: number }; Body: Static<typeof createSchema> }>(
+  fastify.put<{ Params: { id: number }; Body: Static<typeof CreateBody> }>(
     "/:id",
     {
       schema: {
@@ -185,23 +178,27 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         params: Type.Object({
           id: Type.Number(),
         }),
-        body: createSchema,
+        body: CreateBody,
         response: {
-          201: createOk,
-          400: createError,
+          200: ProductSchema,
+          400: ErrorSchema,
         },
       },
     },
     async (request, reply) => {
-      const updatedProduct = await db.product.update({
-        where: {
-          id: request.params.id,
-        },
-        data: {
-          ...request.body,
-        },
-      });
-      reply.send(updatedProduct);
+      try {
+        const updatedProduct = await db.product.update({
+          where: { id: request.params.id },
+          data: { ...request.body },
+        });
+        json(reply, updatedProduct, 200);
+      } catch (error) {
+        if (error instanceof Error) {
+          json(reply, { message: error.message }, 400);
+        } else {
+          json(reply, { message: error as any }, 400);
+        }
+      }
     }
   );
 
@@ -210,25 +207,26 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
     {
       schema: {
         tags: ["products"],
-        params: Type.Object({
-          id: Type.Number(),
-        }),
+        params: Type.Object({ id: Type.Number() }),
         response: {
           200: Type.Object({
             ok: Type.Boolean(),
           }),
+          404: ErrorSchema,
         },
       },
     },
     async (request, reply) => {
       const { id } = request.params;
-      await db.product.delete({
-        where: {
-          id,
-        },
-      });
 
-      reply.send({ ok: true });
+      const product = await db.product.findUnique({ where: { id } });
+      if (!product) {
+        return json(reply, { message: "Product not found" }, 404);
+      }
+
+      await db.product.delete({ where: { id } });
+
+      json(reply, { ok: true });
     }
   );
 };

@@ -1,6 +1,6 @@
 import fp from "fastify-plugin";
 import fastifySwagger from "fastify-swagger";
-import { ProductSchema } from "../routes/products";
+import { ProductSchema, ShopSchema } from "../schemas";
 
 /**
  * This plugins adds some utilities to handle http errors
@@ -24,12 +24,10 @@ export default fp(async (fastify, opts) => {
       schemes: ["http"],
       consumes: ["application/json"],
       produces: ["application/json"],
-      tags: [
-        { name: "products", description: "User related end-points" },
-        { name: "shops", description: "Code related end-points" },
-      ],
+      tags: [{ name: "products", description: "User related end-points" }],
       definitions: {
         Product: ProductSchema as any,
+        Shop: ShopSchema as any,
       },
     },
     uiConfig: {

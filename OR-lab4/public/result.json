@@ -1,0 +1,258 @@
+{
+  "date": "2022-01-10T16:02:05.329Z",
+  "generatedBy": "tamara.luzija1@gmail.com",
+  "data": [
+    {
+      "id": 2,
+      "name": "Licensed Wooden Ball",
+      "short_description": "Et recusandae velit.",
+      "main_image": "http://placeimg.com/640/480/transport",
+      "images": [
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/abstract"
+      ],
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "price": 57498,
+      "stock": 6850,
+      "raiting": 6,
+      "created_at": "2021-09-20T00:21:14.980Z",
+      "shop": {
+        "id": 1,
+        "slug": "treutel-hoeger-and-legros",
+        "name": "Treutel, Hoeger and Legros",
+        "description": "Consectetur veritatis in consectetur cum maiores repellendus quos enim. Nobis eos quidem veniam neque harum omnis architecto.",
+        "background_image": "http://placeimg.com/640/480/city",
+        "address": "1144 Dooley Mission",
+        "contact": "(228) 814-3346",
+        "rating": 2,
+        "timezone": "Asia/Vladivostok",
+        "created_at": "2021-12-01T22:46:56.432Z"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Small Granite Gloves",
+      "short_description": "Neque dignissimos quia ipsam impedit quas.",
+      "main_image": "http://placeimg.com/640/480/fashion",
+      "images": [
+        "http://placeimg.com/640/480/fashion",
+        "http://placeimg.com/640/480/technics",
+        "http://placeimg.com/640/480/fashion"
+      ],
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "price": 1486,
+      "stock": 11023,
+      "raiting": 2,
+      "created_at": "2021-06-24T22:06:47.549Z",
+      "shop": {
+        "id": 1,
+        "slug": "bogisich-inc",
+        "name": "Bogisich Inc",
+        "description": "Voluptatem rerum optio aut accusantium id eum. Quam incidunt qui.",
+        "background_image": "http://placeimg.com/640/480/transport",
+        "address": "29598 Kertzmann Pines",
+        "contact": "462.612.6562 x71188",
+        "rating": 2,
+        "timezone": "Asia/Novosibirsk",
+        "created_at": "2021-10-23T00:33:41.932Z"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Practical Metal Shoes",
+      "short_description": "Tempora est quia blanditiis rerum ab temporibus consectetur minus.",
+      "main_image": "http://placeimg.com/640/480/sports",
+      "images": [
+        "http://placeimg.com/640/480/technics",
+        "http://placeimg.com/640/480/nightlife",
+        "http://placeimg.com/640/480/nightlife"
+      ],
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "price": 26108,
+      "stock": 37266,
+      "raiting": 2,
+      "created_at": "2021-10-05T23:54:27.096Z",
+      "shop": {
+        "id": 3,
+        "slug": "borer-group",
+        "name": "Borer Group",
+        "description": "Qui tempora saepe voluptatem sed non nihil. Et explicabo voluptas quod.",
+        "background_image": "http://placeimg.com/640/480/sports",
+        "address": "9615 Marjolaine Turnpike",
+        "contact": "673.381.5211 x9992",
+        "rating": 2,
+        "timezone": "Europe/Bucharest",
+        "created_at": "2021-06-25T21:29:40.384Z"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Fantastic Concrete Salad",
+      "short_description": "Totam sapiente doloribus iusto exercitationem.",
+      "main_image": "http://placeimg.com/640/480/sports",
+      "images": [
+        "http://placeimg.com/640/480/cats",
+        "http://placeimg.com/640/480/city",
+        "http://placeimg.com/640/480/people"
+      ],
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "price": 99967,
+      "stock": 95184,
+      "raiting": 4,
+      "created_at": "2021-10-18T07:30:54.982Z",
+      "shop": {
+        "id": 3,
+        "slug": "greenfelder-group",
+        "name": "Greenfelder Group",
+        "description": "Error sint est totam autem quia incidunt sint et. Quidem nihil neque laborum est id provident facere minima qui.",
+        "background_image": "http://placeimg.com/640/480/nature",
+        "address": "3674 Kutch Ports",
+        "contact": "969.836.2679 x8392",
+        "rating": 2,
+        "timezone": "America/Godthab",
+        "created_at": "2021-04-27T06:49:27.347Z"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Ergonomic Metal Chair",
+      "short_description": "Culpa aut vero voluptatum quo.",
+      "main_image": "http://placeimg.com/640/480/transport",
+      "images": [
+        "http://placeimg.com/640/480/abstract",
+        "http://placeimg.com/640/480/business",
+        "http://placeimg.com/640/480/abstract"
+      ],
+      "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
+      "price": 84642,
+      "stock": 47289,
+      "raiting": 0,
+      "created_at": "2021-02-18T00:24:30.403Z",
+      "shop": {
+        "id": 2,
+        "slug": "gerlach-llc",
+        "name": "Gerlach LLC",
+        "description": "Vel velit quisquam in deleniti sed ipsa sunt libero. Vitae explicabo itaque facere eos.",
+        "background_image": "http://placeimg.com/640/480/fashion",
+        "address": "1964 Keven Greens",
+        "contact": "(727) 454-6982",
+        "rating": 0,
+        "timezone": "Europe/Budapest",
+        "created_at": "2021-09-30T13:42:31.084Z"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Sleek Steel Chicken",
+      "short_description": "Fugit quis illum velit rerum natus voluptatem voluptatem vero debitis.",
+      "main_image": "http://placeimg.com/640/480/nightlife",
+      "images": [
+        "http://placeimg.com/640/480/food",
+        "http://placeimg.com/640/480/technics",
+        "http://placeimg.com/640/480/business"
+      ],
+      "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      "price": 82172,
+      "stock": 79376,
+      "raiting": 2,
+      "created_at": "2021-10-24T10:21:50.586Z",
+      "shop": {
+        "id": 3,
+        "slug": "lockman-and-sons",
+        "name": "Lockman and Sons",
+        "description": "Ut rerum quod voluptas odit libero ducimus et commodi dolores. Nemo alias sapiente qui quia molestiae rerum soluta.",
+        "background_image": "http://placeimg.com/640/480/transport",
+        "address": "7867 Pfeffer Motorway",
+        "contact": "456-900-2893 x894",
+        "rating": 6,
+        "timezone": "Europe/Berlin",
+        "created_at": "2021-02-23T20:37:43.774Z"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Generic Frozen Computer",
+      "short_description": "Nulla omnis quas.",
+      "main_image": "http://placeimg.com/640/480/nightlife",
+      "images": [
+        "http://placeimg.com/640/480/city",
+        "http://placeimg.com/640/480/fashion",
+        "http://placeimg.com/640/480/food"
+      ],
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "price": 43088,
+      "stock": 55834,
+      "raiting": 2,
+      "created_at": "2021-01-25T10:12:39.113Z",
+      "shop": {
+        "id": 2,
+        "slug": "becker-haag",
+        "name": "Becker - Haag",
+        "description": "Est veniam recusandae. Voluptates delectus totam ut voluptate labore.",
+        "background_image": "http://placeimg.com/640/480/cats",
+        "address": "44315 Dietrich Prairie",
+        "contact": "430.654.0300",
+        "rating": 0,
+        "timezone": "Europe/Lisbon",
+        "created_at": "2021-01-17T16:49:17.922Z"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Fantastic Plastic Soap",
+      "short_description": "Repellat aut assumenda quibusdam cupiditate ut.",
+      "main_image": "http://placeimg.com/640/480/business",
+      "images": [
+        "http://placeimg.com/640/480/food",
+        "http://placeimg.com/640/480/nightlife",
+        "http://placeimg.com/640/480/technics"
+      ],
+      "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      "price": 61797,
+      "stock": 3909,
+      "raiting": 4,
+      "created_at": "2021-11-16T01:11:45.028Z",
+      "shop": {
+        "id": 4,
+        "slug": "cormier-mclaughlin",
+        "name": "Cormier - McLaughlin",
+        "description": "Adipisci aut voluptatem fugiat et. Quis et corporis iusto voluptas aut sequi dicta eveniet.",
+        "background_image": "http://placeimg.com/640/480/nightlife",
+        "address": "5346 Durgan Spur",
+        "contact": "621-444-3341 x76800",
+        "rating": 2,
+        "timezone": "Pacific/Midway",
+        "created_at": "2021-04-11T09:46:42.609Z"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Handcrafted Steel Computer",
+      "short_description": "Vitae aperiam id labore.",
+      "main_image": "http://placeimg.com/640/480/city",
+      "images": [
+        "http://placeimg.com/640/480/sports",
+        "http://placeimg.com/640/480/people",
+        "http://placeimg.com/640/480/nightlife"
+      ],
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "price": 24683,
+      "stock": 12619,
+      "raiting": 0,
+      "created_at": "2021-10-17T11:46:09.105Z",
+      "shop": {
+        "id": 2,
+        "slug": "morar-conn-and-o'hara",
+        "name": "Morar, Conn and O'Hara",
+        "description": "Saepe voluptas ratione minus non. Qui et quasi quos facilis sit suscipit a.",
+        "background_image": "http://placeimg.com/640/480/food",
+        "address": "856 Blick Villages",
+        "contact": "(773) 655-9072 x8044",
+        "rating": 0,
+        "timezone": "Europe/Moscow",
+        "created_at": "2021-04-28T14:10:24.152Z"
+      }
+    }
+  ]
+}

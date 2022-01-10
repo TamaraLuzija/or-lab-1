@@ -1,0 +1,27 @@
+{
+  "name": "or4",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^1.7.0",
+    "@chakra-ui/react": "^1.7.4",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fast-csv/format": "^4.3.5",
+    "chakra-next-link": "^1.0.10",
+    "framer-motion": "^4",
+    "next": "12.0.7",
+    "pg": "^8.7.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.7"
+  }
+}

@@ -2,7 +2,13 @@ import { FastifyPluginAsync, FastifyReply } from "fastify";
 import { Type, Static } from "@sinclair/typebox";
 
 import db from "../../db";
-import { ProductSchema, ErrorSchema, ShopSchema, CreateBody } from "../../schemas";
+import {
+  ProductSchema,
+  ErrorSchema,
+  CreateBody,
+  ProductSchemaLD,
+  ShopSchemaLD,
+} from "../../schemas";
 
 const json = (reply: FastifyReply, data: any, status = 200) => {
   reply.status(status).header("content-type", "application/json").send(data);
@@ -31,7 +37,7 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         tags: ["products"],
         params: Type.Object({ id: Type.Number() }),
         response: {
-          200: ProductSchema,
+          200: ProductSchemaLD,
           404: ErrorSchema,
         },
       },
@@ -47,7 +53,16 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         return json(reply, { message: "Product not found" }, 404);
       }
 
-      return json(reply, product);
+      const productData: Static<typeof ProductSchemaLD> = {
+        ...product,
+        "@context": {
+          "@vocab": "https://schema.org/Product",
+          main_image: "image",
+          name: "name",
+        },
+      };
+
+      return json(reply, productData);
     }
   );
 
@@ -120,7 +135,7 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         tags: ["products"],
         params: Type.Object({ id: Type.Number() }),
         response: {
-          200: ShopSchema,
+          200: ShopSchemaLD,
           404: ErrorSchema,
         },
       },
@@ -140,7 +155,17 @@ const productsRoute: FastifyPluginAsync = async (fastify, opts): Promise<void> =
         return json(reply, { message: "Shop not found" }, 404);
       }
 
-      json(reply, shop);
+      const shopData: Static<typeof ShopSchemaLD> = {
+        ...shop,
+        "@context": {
+          "@vocab": "https://schema.org/Store",
+          name: "name",
+          address: "address",
+          background_image: "image",
+        },
+      };
+
+      return json(reply, shopData);
     }
   );
 

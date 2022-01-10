@@ -14,6 +14,17 @@ export const ProductSchema = Type.Object({
   shop_id: Type.Number(),
 });
 
+export const ProductSchemaLD = Type.Union([
+  ProductSchema,
+  Type.Object({
+    "@context": Type.Object({
+      "@vocab": Type.Literal("https://schema.org/Product"),
+      main_image: Type.Literal("image"),
+      name: Type.Literal("name"),
+    }),
+  }),
+]);
+
 export const ShopSchema = Type.Object({
   id: Type.Number(),
   slug: Type.String(),
@@ -26,6 +37,18 @@ export const ShopSchema = Type.Object({
   timezone: Type.String(),
   created_at: Type.String(),
 });
+
+export const ShopSchemaLD = Type.Union([
+  ProductSchema,
+  Type.Object({
+    "@context": Type.Object({
+      "@vocab": Type.Literal("https://schema.org/Store"),
+      name: Type.Literal("name"),
+      address: Type.Literal("address"),
+      background_image: Type.Literal("image"),
+    }),
+  }),
+]);
 
 export const CreateBody = Type.Omit(ProductSchema, ["id", "created_at", "rating"]);
 export const ErrorSchema = Type.Object({ message: Type.String() });
